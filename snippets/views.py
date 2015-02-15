@@ -30,7 +30,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     
     
 
-class SnippetViewset(viewsets.ModelViewSet):
+class SnippetViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides list, create, retrieve, update, and destroy actions.
     
@@ -39,7 +39,7 @@ class SnippetViewset(viewsets.ModelViewSet):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permissions_classes = (permissions.IsAuthenticatedOrReadOnly,
-        IsOownerOrReadOnly,
+        IsOwnerOrReadOnly,
     )
     @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request, *args, **kwargs):
